@@ -253,7 +253,7 @@ h5 {
 /********* Breakpoints för olika enheter *********/
 @media (min-width: 320px) {
   p {
-    font-size: 8px;
+    font-size: 12px;
   }
   h1 {
     font-size: 16px;
