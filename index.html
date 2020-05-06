@@ -1,128 +1,120 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hangman</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-  </head>
 
-  <body>
-    <header>
-      <!-- <h1>Uppgift 03 - Hangman</h1> -->
-    </header>
-    <main>
-      <article>
-        <h4>Reaper of Souls</h4>
-        <h1>Välkommen att hänga gubben</h1>
-        <h2>~ Diablo Edition ~</h2>
-        <p>
-          När du trycker på "Enter the realm" kommer datorn att välja ett ord
-          slumpmässigt. <br />
-          Det kommer då dyka upp ett visst antal fält som motsvarar antalet
-          bokstäver i ordet. <br />
-          Ditt mål är att gissa ordet genom att trycka på bokstavsknapparna.<br />
-          För varje bokstav du gissar rätt dyker den bokstaven upp 
-         i respektive fält.
-        </p>
-      </article>
-      <button class="btn btn--stripe" type="button" id="startGameBtn">
-        Enter the realm
-      </button>
-      <section id="gameBoard">
-        <ul id="letterButtons">
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="A">A</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="B">B</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="C">C</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="D">D</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="E">E</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="F">F</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="G">G</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="H">H</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="I">I</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="J">J</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="K">K</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="L">L</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="M">M</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="N">N</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="O">O</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="P">P</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Q">Q</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="R">R</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="S">S</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="T">T</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="U">U</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="V">V</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="W">W</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="X">X</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Y">Y</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Z">Z</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Å">Å</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Ä">Ä</button>
-          </li>
-          <li>
-            <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Ö">Ö</button>
-          </li>
-        </ul>
-        <section id="letterBoxes">
-          <!-- This is where the matched letters should appear, these should match the number of letters in the selected word -->
-          
+<head>
+  <meta charset="UTF-8" />
+  <title>Hangman</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+  <header>
+    <!-- <h1>Uppgift 03 - Hangman</h1> -->
+  </header>
+  <main>
+    <article>
+      <h4>Reaper of Souls</h4>
+      <h1>Välkommen att hänga gubben</h1>
+      <h2>~ Diablo Edition ~</h2>
+      <p>
+        När du trycker på "Enter the realm" kommer datorn att välja ett ord
+        slumpmässigt. <br />
+        Det kommer då dyka upp ett visst antal fält som motsvarar antalet
+        bokstäver i ordet. <br />
+        Ditt mål är att gissa ordet genom att trycka på bokstavsknapparna.<br />
+        För varje bokstav du gissar rätt dyker den bokstaven upp
+        i respektive fält.
+      </p>
+    </article>
+    <button class="btn btn--stripe" type="button" id="startGameBtn">
+      Enter the realm
+    </button>
+    <section id="gameBoard">
+      <ul id="letterButtons">
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="A">A</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="B">B</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="C">C</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="D">D</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="E">E</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="F">F</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="G">G</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="H">H</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="I">I</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="J">J</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="K">K</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="L">L</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="M">M</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="N">N</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="O">O</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="P">P</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Q">Q</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="R">R</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="S">S</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="T">T</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="U">U</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="V">V</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="W">W</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="X">X</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Y">Y</button>
+        </li>
+        <li>
+          <button class="btn btn--stripe" type="button" onclick="lookAtGuess(this.value)" value="Z">Z</button>
+        </li>
+      </ul>
+      <section id="letterBoxes">
+        <!-- This is where the matched letters should appear, these should match the number of letters in the selected word -->
+
         <ul id="letterList"></ul>
-            <!-- 
+        <!-- 
             <li><input type="text" disabled value="&nbsp;" /></li>
             <li><input type="text" disabled value="&nbsp;" /></li>
             <li><input type="text" disabled value="&nbsp;" /></li>
@@ -132,20 +124,21 @@
             <li><input type="text" disabled value="&nbsp;" /></li>
             <li><input type="text" disabled value="&nbsp;" /></li>
             -->
-          
-        </section>
-        <img id="hangman" src="images/h0.png" alt="hangman">
+
       </section>
-      <section id="message">
-        <!-- This is where messages should appear -->
-      </section>
-      <section>
-        <h5>Soon your reign has ended: <span id="guesses-left"</span></h5>
-      </section>
-    </main>
-    <footer>
-      Patrik Axenstedt - Chas Academy - Hangman uppgift 03
-    </footer>
-    <script type="text/javascript" src="js/script.js"></script>
-  </body>
+      <img id="hangman" src="images/h0.png" alt="hangman">
+    </section>
+    <section id="message">
+      <!-- This is where messages should appear -->
+    </section>
+    <section>
+      <h5>Soon your reign has ended: <span id="guesses-left" </span></h5>
+    </section>
+  </main>
+  <footer>
+    Patrik Axenstedt - Chas Academy - Hangman uppgift 03
+  </footer>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+
 </html>

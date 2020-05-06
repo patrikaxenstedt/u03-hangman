@@ -10,17 +10,17 @@ let hangmanImgNr;    // Sträng: sökväg till bild som kommer visas (och ändra
 
 let letterBoxesEls;  // Array av DOM-noder: Rutorna där bokstäverna ska stå
 let startGameBtnEl;  // DOM-nod: knappen som du startar spelet med
-let letterGuess; 
+let letterGuess;
 let playerLives = 6; // Håller koll på antal gissningar som spelaren har kvar
 let msgElem;         // DOM-nod: Ger meddelande när spelet är över
 
 // Gör så att init körs när sidan laddas
-window.onload = init; 
+window.onload = init;
 
 // Funktion som körs när man kommer in på sidan
 function init() {
     document.querySelector("#startGameBtn").addEventListener('click', startGameBtn);
-} 
+}
 
 // Funktion som startar spelet vid mouseclick och tillkallar andra funktioner som krävs för att spela
 function startGameBtn() {
@@ -33,13 +33,13 @@ function startGameBtn() {
 }
 
 // Funktion som slumpar fram ett ord
-function randomWord(){
+function randomWord() {
     selectedWord = wordList[Math.floor(Math.random() * wordList.length)];
 }
 
 // Funktion som tar fram bokstävernas rutor beroende på vilket ord som slumpades fram
 function createLetterBoxes() {
-    letterBoxEls = document.querySelector('#letterBoxes > ul'); 
+    letterBoxEls = document.querySelector('#letterBoxes > ul');
     letterBoxEls.innerHTML = "";
 
     for (let i = 0; i < selectedWord.length; i++) {
@@ -51,64 +51,65 @@ function createLetterBoxes() {
         newElement.appendChild(newInput);
         letterBoxEls.appendChild(newElement);
     }
- }
+}
 
 // Funktion som kollar om gissade bokstaven finns i ordet och placerar det på rätt plats
 function lookAtGuess(letterGuess) {
     // För att kolla så knapparna verkligen loggar rätt värde/value 
     console.log(letterGuess);
 
-    let correctGuess = false;                                           
-    let childNodes = document.getElementById("letterList").children;    
-    
-    for (let i = 0; i < selectedWord.length; i++) { 
+    let correctGuess = false;
+    let childNodes = document.getElementById("letterList").children;
 
-        if (letterGuess.toLowerCase() == selectedWord[i]) {   
+    for (let i = 0; i < selectedWord.length; i++) {
+
+        if (letterGuess.toLowerCase() == selectedWord[i]) {
             correctGuess = true;
-            guesses++;                                      
-            childNodes[i].firstChild.setAttribute("value", letterGuess); 
+            guesses++;
+            childNodes[i].firstChild.setAttribute("value", letterGuess);
             disableLetter(letterGuess);
         }
-    } 
-    
+    }
+
     if (correctGuess == false) {
         hangmanImgNr++;
         document.getElementById('guesses-left').innerHTML = playerLives -= 1;
-        makeHangmanimg(); 
-        disableLetter(letterGuess); 
+        makeHangmanimg();
+        disableLetter(letterGuess);
     }
-    if (hangmanImgNr == 6 ) {
-        msgElem = "You thought you were so clever... Rätt ord: " + selectedWord.toUpperCase();
+    if (hangmanImgNr == 6) {
+        msgElem = "You thought you were so clever... Right word: " + selectedWord.toUpperCase();
         gameOver();
     }
     if (guesses == selectedWord.length) {
         msgElem = "Diablo was defeated. For now.";
         gameOver();
     }
-} 
+}
 
 // Funktion som tar bort boxarna, rensar spelplanen
-function removeBoxes(){
+function removeBoxes() {
     let letterBoxesToRemove = letterBoxes.querySelectorAll("li");
     if (letterBoxesToRemove.length > 0 || null) {
-        for (let i = 0; i < letterBoxesToRemove.length; i++){
+        for (let i = 0; i < letterBoxesToRemove.length; i++) {
             let nodeToRemove = letterBoxesToRemove[i];
             letterBoxes.removeChild(nodeToRemove);
-        }    
+        }
     }
 }
 
 // Funktion som bygger på Hangman vid fel svar
 function makeHangmanimg() {
-    hangmanImg = document.querySelector("#hangman");   
-    hangmanImg.setAttribute("src", "images/h"+hangmanImgNr+".png")
+    hangmanImg = document.querySelector("#hangman");
+    hangmanImg.setAttribute("src", "images/h" + hangmanImgNr + ".png")
 }
 
 // Funktionen ropas vid vinst eller förlust, meddelar spelaren om denne vunnit eller förlorat
 function gameOver() {
     disableButtons();
-    setTimeout(function() {
-         window.alert(msgElem); }); 
+    setTimeout(function () {
+        window.alert(msgElem);
+    });
 }
 
 // Funktion som inaktiverar/aktiverar bokstavsknapparna beroende på vilken del av spelet du är på
@@ -117,9 +118,9 @@ function disableLetter(letterGuess) {
 
     for (let i = 0; i < allLetters.length; i++) {
 
-      if (allLetters[i].innerHTML == letterGuess) {
-          allLetters[i].disabled = true;
-      }  
+        if (allLetters[i].innerHTML == letterGuess) {
+            allLetters[i].disabled = true;
+        }
     }
 }
 
@@ -149,6 +150,6 @@ function resetLetterButtons() {
             allLetters[i].disabled = false;
             allLetters[i].removeAttribute("style");
         }
-    }    
+    }
 }
 
