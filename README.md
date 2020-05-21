@@ -1,5 +1,4 @@
-Hangman
+Hangman made with Javascript
 
-Patrik Axenstedt <patrik.eriksson.axenstedt@chasacademy.se>
 
 https://axenstedt.com/hangman/
