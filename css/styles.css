@@ -6,12 +6,15 @@
   padding: 0;
 }
 
+
 body {
   background-image: url(../images/diablobg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
-	background-attachment: fixed;
   color: white;
-  font-family: sans-serif;
+  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,54 +24,38 @@ body {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 100%;
-  min-height: 100vh;
 }
+
+
 
 header {
-  background-color: black;
   color: #fff;
-  -webkit-box-flex: 0;
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 28px;
-  text-align: center;
   
 }
 
 
+
+
 main {
   flex: 1;
-  padding: 1.1em;
+  
 }
 
-main:after {
-  content: "\00a0"; /* &nbsp; */
-  display: block;
-  margin-top: var(--space);
-  height: 0px;
-  visibility: hidden;
-}
+
 
 main > article {
   display: flex;
   flex-direction: column;
   padding: 1.5em;
+  align-items: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  align-items: center;
-}
+  
+  
+} 
 
-main > article > button {
-  align-content: center;
-  justify-content: center;
-}
+
 
 main > article > h2 {
   text-align: center;
@@ -78,29 +65,58 @@ main > article > h2 {
 }
 
 
-ul {
-  list-style-type: none;
+.btn {
+  -moz-user-select: text;
+ 
 }
 
-footer {
-  background-color: transparent;
-  
-  margin-top: 20px;
-  padding-top: 30px;
-  padding-bottom: 20px;
+
+
+
+.btn-light:disabled {
+  background-color: #999;
   color: #fff;
-  font-size: 14px;
-  width: 100%;
-  flex: none;
-  text-align: center;
+  border-color: #666;
 }
+
+.btn-light:hover {
+  background-color: #666;
+  color: #fff;
+  border-color: #000;
+}
+
+.btn-light:disabled:after,
+.btn-light:hover:after {
+  background-image: -webkit-repeating-linear-gradient(
+    45deg,
+    black,
+    black 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  background-image: repeating-linear-gradient(
+    45deg,
+    black,
+    black 1px,
+    transparent 2px,
+    transparent 5px
+  );
+  border-top: 1px solid #000;
+}
+
+
 
 #startGameBtn {
-  font-size: 1.5em;
+  margin: 4px 4px;
+  cursor: pointer;
+  max-width: 84px;
+  min-width: 84px;
+  color: gold;
 }
 
 #gameBoard {
   padding: 10px 0;
+  
 }
 
 #letterButtons {
@@ -109,6 +125,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  max-width: 900px;
 }
 
 #letterButtons button:not(last-child) {
@@ -124,136 +141,68 @@ footer {
 
 #letterBoxes input {
   border: 1px solid #666;
-  color: #666;
-  font-size: 1.5em;
+  color: black;
+  font-size: 24px;
   font-weight: bold;
-  line-height: 2em;
-  margin-top: 1em;
+  line-height: 10px;
+  margin-top: 5px;
   padding: 20px 5px;
   text-align: center;
-  width: 2em;
+  width: 40px;
+  height: 50px;
 }
 
 #message {
-  padding-top: 20px;
   font-size: 16px;
+  right: 100px;
+}
+
+#hangman {
+  margin: 0 auto;
+  line-height: 30px;
 
 }
 
-.btn {
-  -moz-user-select: text;
-  background-color: #fff;
-  background: transparent;
-  border-radius: 6px;
-  border: 0;
-  border: 2px solid #666;
-  color: white;
-  cursor: pointer;
-  display: block;
-  font: inherit;
-  line-height: normal;
-  margin-bottom: 16px;
-  margin: 0;
-  overflow: visible;
-  padding: 0;
-  padding: 16px 36px 22px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
 
-.btn::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
 
-.btn--stripe {
-  overflow: hidden;
-  position: relative;
-}
 
-.btn--stripe:after {
-  content: "";
-  display: block;
-  height: 7px;
-  width: 100%;
-  background-image: -webkit-repeating-linear-gradient(
-    45deg,
-    #666,
-    #666 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  background-image: repeating-linear-gradient(
-    45deg,
-    #666,
-    #666 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-top: 1px solid #666;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-size: 7px 7px;
-}
-
-.btn--stripe:disabled {
-  background-color: #999;
-  color: #fff;
-  border-color: #666;
-}
-
-.btn--stripe:hover {
-  background-color: #666;
-  color: #fff;
-  border-color: #000;
-}
-
-.btn--stripe:disabled:after,
-.btn--stripe:hover:after {
-  background-image: -webkit-repeating-linear-gradient(
-    45deg,
-    #fff,
-    #fff 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  background-image: repeating-linear-gradient(
-    45deg,
-    #fff,
-    #fff 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  border-top: 1px solid #000;
-}
-
-p {
-  text-align: center;
-  font-size: 14px;
-}
 
 h1 {
   font-size: 28px;
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-h2 {
-  font-size: 26px;
-}
+
 h4 {
   font-size: 16px;
-  font-style: italic;
+  color: white;
 }
 
 h5 {
   font-size: 14px;
+  color: white;
 }
-/********* Breakpoints för olika enheter *********/
-@media (min-width: 320px) {
+
+h6 {
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+/* ******** Breakpoints för olika enheter *********/
+@media (max-width: 600px)  {
+
+ 
   p {
     font-size: 12px;
+    width: 400px;
   }
   h1 {
     font-size: 16px;
@@ -276,19 +225,12 @@ h5 {
   h5 {
     font-size: 18px;
   }
+ 
   
-}
-
-
-@media (min-width: 768px) {
-  p {
-    font-size:10px;
+  main {
+    flex: 1;
+    overflow: hidden;
   }
-  
-}
 
-@media (min-width: 1024px) {
-  p {
-    font-size:12px;
-  }
-}
+} 
+

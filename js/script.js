@@ -1,8 +1,6 @@
-/*============================================================================*/
-/* ----------------- VÄLKOMMEN TILL HANGMAN DIABLO EDITION! ----------------- */
-/*============================================================================*/
 // Globala variabler
-const wordList = ['diablo', 'mephisto', 'baal', 'andariel', 'duriel', 'azmodan', 'lilith', 'leah', 'rakanoth', 'tyrael', 'malthael', 'izual']; // Array: med spelets alla ord
+// Array: med spelets alla ord
+const wordList = ['diablo', 'mephisto', 'baal', 'andariel', 'duriel', 'azmodan', 'lilith', 'leah', 'rakanoth', 'tyrael', 'malthael', 'izual'];
 let selectedWord;    // Sträng: ett av orden valt av en slumpgenerator från arrayen ovan
 
 let guesses = 0;     // Number: håller antalet gissningar som gjorts
@@ -114,7 +112,7 @@ function gameOver() {
 
 // Funktion som inaktiverar/aktiverar bokstavsknapparna beroende på vilken del av spelet du är på
 function disableLetter(letterGuess) {
-    let allLetters = document.getElementsByClassName("btn btn--stripe");
+    let allLetters = document.getElementsByClassName("btn btn-light");
 
     for (let i = 0; i < allLetters.length; i++) {
 
@@ -133,7 +131,7 @@ function restartGame() {
 
 // Funktion som gör knappar ej klickbara, används när spelet är vunnet/förlorat
 function disableButtons() {
-    let allLetters = document.getElementsByClassName("btn btn--stripe");
+    let allLetters = document.getElementsByClassName("btn btn-light");
 
     for (let i = 1; i < allLetters.length; i++) {
         allLetters[i].disabled = true;
@@ -142,7 +140,7 @@ function disableButtons() {
 
 // Funktion som gör att knappar går att klicka, används när spelet startas om
 function resetLetterButtons() {
-    let allLetters = document.getElementsByClassName("btn btn--stripe");
+    let allLetters = document.getElementsByClassName("btn btn-light");
 
     for (let i = 0; i < allLetters.length; i++) {
 
