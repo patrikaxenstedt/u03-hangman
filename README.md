@@ -1,4 +1,4 @@
-#Javascript, hangman game
+# Javascript, hangman game
 
 
 https://axenstedt.com/hangman/
