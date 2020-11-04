@@ -1,5 +1,2 @@
-# Javascript, hangman game
-## Diablo edition
+## Hangman game made with Javascript
 
-
-https://axenstedt.com/hangman/
