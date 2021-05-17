@@ -1,2 +1,2 @@
-## Hangman game made with Javascript
+# Hangman game made with Javascript
 
