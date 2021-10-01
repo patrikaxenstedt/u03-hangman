@@ -1,3 +1,3 @@
  Hangman game made with Javascript
 
- u01
+ Assignment u01
