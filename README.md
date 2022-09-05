@@ -1,3 +1,2 @@
- Hangman game made with Javascript.
-
- School assignment u01
+School assignment u01
+Hangman game made with Javascript
