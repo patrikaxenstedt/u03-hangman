@@ -3,14 +3,14 @@
 const wordList = ['diablo', 'mephisto', 'baal', 'andariel', 'duriel', 'azmodan', 'lilith', 'leah', 'rakanoth', 'tyrael', 'malthael', 'izual'];
 let selectedWord;    // Sträng: ett av orden valt av en slumpgenerator från arrayen ovan
 
-let guesses = 0;     // Number: håller antalet gissningar som gjorts
+let guesses = 0;     // Antalet gissningar som gjorts
 let hangmanImgNr;    // Sträng: sökväg till bild som kommer visas (och ändras) fel svar. t.ex. `/images/h1.png`
 
 let letterBoxesEls;  // Array av DOM-noder: Rutorna där bokstäverna ska stå
 let startGameBtnEl;  // DOM-nod: knappen som du startar spelet med
 let letterGuess;
 let playerLives = 6; // Håller koll på antal gissningar som spelaren har kvar
-let msgElem;         // DOM-nod: Ger meddelande när spelet är över
+let msgElem;         // Ger meddelande när spelet är över
 
 // Gör så att init körs när sidan laddas
 window.onload = init;
